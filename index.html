@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#030205">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:title" content="Nandhu S. Mahendran">
+<meta property="og:description" content="Founder &amp; CEO of Blunar Co, Zeshin, Med Blunar and HodoMate, Ramanathapuram.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050407'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='%23e3c58c' text-anchor='middle'%3ENM%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/portrait.jpg">
+<style>
+/* base reset (standalone hosting) */
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Nandhu S. Mahendran</title>
+<meta name="description" content="Nandhu S. Mahendran — Founder & CEO of Blunar Co, Zeshin, Med Blunar and HodoMate, Ramanathapuram.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a live title sequence that settles into the home screen, then a founder's dossier — black stage, scan-line rules, silver type; gold = Blunar, blue = Zeshin, mint = Med Blunar, coral = HodoMate */
+:root {
+  --bg: #050407;
+  --stage: #030205;
+  --surface: #0d0c11;
+  --fg: #e8edf1;
+  --muted: #9097a2;
+  --faint: #5f6470;
+  --line: rgba(232, 237, 241, 0.12);
+  --gold: #e3c58c;
+  --blue: #8ebcff;
+  --mint: #82e3c9;
+  --coral: #ff9f7a;
+  --display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --wrap: 1160px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+section[id], #top { scroll-margin-top: 64px; }
+button, a { touch-action: manipulation; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--stage); }
+
+/* ---------- home: live title sequence ---------- */
+.hero { position: relative; height: 100vh; height: 100svh; min-height: 300px; touch-action: pan-y; -webkit-user-select: none; user-select: none; background: var(--stage); overflow: hidden; }
+.hero canvas { position: absolute; top: 0; left: 0; inset: 0; -webkit-transform: translateZ(0); transform: translateZ(0); width: 100%; height: 100%; display: block; }
+#glow { -webkit-filter: blur(12px); filter: blur(12px); mix-blend-mode: screen; opacity: .85; pointer-events: none; }
+.hero::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.02) 0 1px, transparent 1px 4px); }
+.hero-copy {
+  position: absolute; z-index: 3;
+  left: max(24px, env(safe-area-inset-left, 0px)); bottom: 0;
+  width: min(46%, 560px);
+  padding-bottom: calc(clamp(72px, 14vh, 140px) + env(safe-area-inset-bottom, 0px));
+  display: flex; flex-direction: column; gap: 18px;
+  transition: opacity .8s ease, transform .8s ease;
+}
+@media (min-width: 861px), (orientation: landscape) and (min-width: 560px) { .hero-copy { left: max(6vw, env(safe-area-inset-left, 0px)); top: 50%; bottom: auto; transform: translateY(-50%); padding-bottom: 0; } }
+.hero.intro-on .hero-copy { opacity: 0; pointer-events: none; }
+.hero-eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .22em; text-transform: uppercase; color: var(--muted); display: flex; gap: 12px; align-items: center; margin: 0; }
+.hero-eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--muted); }
+.hero h1 { font: 700 clamp(38px, 5.6vw, 78px)/1 var(--display); letter-spacing: .05em; text-transform: uppercase; margin: 0; text-wrap: balance; }
+.hero h1 .ch { display: inline-block; }
+.hero-roles { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0; padding: 0; list-style: none; font: 500 12.5px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.hero-roles li:nth-child(1) { color: var(--gold); }
+.hero-roles li:nth-child(2) { color: var(--blue); }
+.hero-roles li:nth-child(3) { color: var(--mint); }
+.hero-roles li:nth-child(4) { color: var(--coral); }
+.hero-line { color: #c3c9d0; max-width: 40ch; margin: 0; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.btn { font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding: 14px 18px; border-radius: 999px; border: 1px solid var(--line); color: var(--fg); background: rgba(10,10,14,.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.btn.primary { background: var(--fg); color: var(--stage); border-color: var(--fg); }
+.btn:hover { border-color: rgba(232,237,241,.45); }
+.hero-ctrl { position: absolute; z-index: 4; right: max(20px, env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; }
+.chip-btn { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); background: rgba(10,10,14,.55); border: 1px solid var(--line); padding: 10px 13px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.chip-btn:hover { color: var(--fg); }
+.scroll-cue { position: absolute; z-index: 4; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); width: 1px; height: 38px; background: linear-gradient(var(--fg), transparent); opacity: .6; }
+.hero.intro-on .scroll-cue { opacity: 0; }
+
+@media (max-width: 860px) and (orientation: portrait), (max-width: 559px) {
+  .hero-copy { width: auto; right: max(20px, env(safe-area-inset-right, 0px)); left: max(20px, env(safe-area-inset-left, 0px)); gap: 12px; padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .hero-copy::before { content: ""; position: absolute; z-index: -1; left: -40px; right: -40px; bottom: 0; top: -70px; background: linear-gradient(transparent, rgba(3,2,5,.92) 38%); }
+  .hero h1 { font-size: clamp(32px, 9vw, 46px); }
+  .hero-line { display: none; }
+  .scroll-cue { display: none; }
+}
+
+/* ---------- nav ---------- */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: rgba(5,4,7,.84); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav-in { max-width: var(--wrap); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px 16px; flex-wrap: wrap; }
+.mark { font: 700 13px/1 var(--display); letter-spacing: .28em; text-decoration: none; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; flex-wrap: wrap; }
+.nav a.l { font: 500 12px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+.nav a.l:hover { color: var(--fg); }
+
+/* ---------- sections ---------- */
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+section.block { padding-block: clamp(64px, 10vw, 120px); border-top: 1px solid var(--line); position: relative; }
+section.block::before { content: ""; position: absolute; top: -1px; left: 0; height: 1px; width: 22%; background: linear-gradient(90deg, transparent, var(--fg), transparent); opacity: .5; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 0 0 22px; display: flex; gap: 12px; align-items: center; }
+.eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--muted); }
+h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h2 { font-weight: 600; font-size: clamp(30px, 4.6vw, 52px); line-height: 1.08; letter-spacing: -.01em; max-width: 20ch; }
+h3 { font-weight: 600; font-size: 20px; line-height: 1.25; }
+p { margin: 0; }
+.lede { color: var(--muted); max-width: 62ch; margin-top: 20px; }
+.head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; }
+.head-row > div:first-child { min-width: 0; flex: 1 1 420px; }
+
+/* running numbers */
+.stat { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.stat .num { font: 700 clamp(56px, 8vw, 104px)/.9 var(--display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; background: linear-gradient(180deg, #ffffff, #9aa3ad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat .num.g { background: linear-gradient(180deg, #fff3d6, var(--gold)); -webkit-background-clip: text; background-clip: text; }
+.stat .lab { font: 500 12px/1.5 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); max-width: 28ch; }
+
+/* about */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
+.portrait { margin: 0; border-radius: 4px; overflow: hidden; background: var(--stage); aspect-ratio: 810 / 990; max-width: 100%; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-copy { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.about-copy .bio { color: #c9cfd6; max-width: 58ch; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 12px 0 0; }
+.facts div { background: var(--bg); padding: 16px; }
+.facts dt { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
+.facts dd { margin: 0; font-size: 15px; line-height: 1.4; }
+
+/* companies */
+.cos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 48px; }
+.co { --c: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: clamp(24px, 3.5vw, 40px); background: var(--surface); display: flex; flex-direction: column; gap: 18px; position: relative; overflow: hidden; min-width: 0; }
+.co::after { content: ""; position: absolute; inset: auto -20% -60% -20%; height: 80%; background: radial-gradient(closest-side, var(--c), transparent); opacity: .16; pointer-events: none; }
+.co.blunar { --c: var(--gold); } .co.zeshin { --c: var(--blue); } .co.med { --c: var(--mint); } .co.hodo { --c: var(--coral); }
+.co-head { display: flex; align-items: center; gap: 18px; }
+.co-head img { height: 56px; width: auto; }
+.mono-mark { width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid var(--c); display: grid; place-items: center; font: 700 17px/1 var(--display); letter-spacing: .04em; color: var(--c); flex: none; }
+.co h3 { color: var(--c); }
+.co-role { font: 500 11px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.co p { color: #c3c9d0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.tags li { font: 400 12px/1 var(--mono); padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.co .out { margin-top: auto; font: 500 12px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 4px; align-self: flex-start; }
+.co .out.plain { border: 0; color: var(--faint); }
+
+/* work */
+.groups { margin-top: 56px; display: flex; flex-direction: column; gap: 40px; }
+.group { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; }
+.group-label { font: 600 15px/1.3 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--gc, var(--fg)); padding-top: 6px; }
+.group-label small { display: block; font: 400 11px/1.5 var(--mono); letter-spacing: .12em; color: var(--faint); margin-top: 6px; }
+.items { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.item { background: var(--bg); padding: 26px 22px 24px; display: flex; flex-direction: column; gap: 12px; min-width: 0; transition: background .25s ease; }
+.item:hover { background: var(--surface); }
+.status { display: inline-flex; align-items: center; gap: 8px; font: 500 11px/1.3 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.status::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--c, var(--faint)); box-shadow: 0 0 8px var(--c, transparent); }
+.s-live { --c: #7fe0a8; } .s-pilot { --c: var(--gold); } .s-dev { --c: var(--blue); } .s-proto { --c: #d9a6ff; } .s-event { --c: #f0f0f0; }
+.item p { color: var(--muted); font-size: 15.5px; }
+.item .meta { margin-top: auto; padding-top: 8px; font: 400 12px/1.5 var(--mono); color: var(--faint); overflow-wrap: anywhere; }
+.item .meta a { color: var(--fg); }
+
+/* studio */
+.studio { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); margin-top: 48px; align-items: start; }
+.svc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.svc li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.svc li span:last-child { font: 400 12px/1.6 var(--mono); color: var(--faint); text-align: right; }
+.studio-stat { border: 1px solid var(--line); border-radius: 6px; padding: clamp(24px, 3.5vw, 40px); background: var(--surface); display: flex; flex-direction: column; gap: 18px; }
+.studio-stat p { color: var(--muted); font-size: 15.5px; }
+
+/* recognition */
+.stats-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 48px; padding-block: 32px; border-block: 1px solid var(--line); }
+.stats-note { grid-column: 1 / -1; color: var(--muted); }
+.rec { margin-top: 24px; }
+.rec ul { margin: 0; padding: 0; }
+.rec li { list-style: none; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr); gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.rec strong { font: 600 clamp(18px, 2vw, 22px)/1.3 var(--display); }
+.rec span { color: var(--muted); }
+.also { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 48px; }
+.also div { border-left: 1px solid var(--line); padding-left: 18px; min-width: 0; }
+.also h3 { font-size: 16px; margin-bottom: 8px; }
+.also p { color: var(--muted); font-size: 15px; }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.big { font: 700 clamp(36px, 6vw, 76px)/1 var(--display); letter-spacing: .04em; text-transform: uppercase; }
+.big em { font-style: normal; color: var(--gold); }
+.lines dl { margin: 0; border-top: 1px solid var(--line); }
+.line-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.line-row dt { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+.line-row dd { margin: 0; overflow-wrap: anywhere; }
+.line-row dd a { text-decoration: none; border-bottom: 1px solid var(--line); }
+.copy { font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 7px 10px; cursor: pointer; }
+.copy:hover { color: var(--fg); border-color: rgba(232,237,241,.35); }
+
+/* ---------- phone & tablet refinements ---------- */
+.menu-btn { display: none; }
+@media (max-width: 720px) {
+  .nav-in { padding-block: 12px; flex-wrap: nowrap; position: relative; }
+  .menu-btn { display: inline-flex; align-items: center; gap: 10px; font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 11px 14px; cursor: pointer; }
+  .menu-btn .bars { width: 14px; height: 8px; border-block: 1.5px solid currentColor; transition: transform .25s ease; }
+  .menu-btn[aria-expanded="true"] .bars { transform: rotate(90deg); }
+  .nav ul { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: rgba(5,4,7,.97); border-bottom: 1px solid var(--line); padding: 6px max(16px, env(safe-area-inset-right, 0px)) 14px max(16px, env(safe-area-inset-left, 0px)); }
+  .nav ul.open { display: flex; }
+  .nav ul li { border-bottom: 1px solid var(--line); }
+  .nav ul li:last-child { border-bottom: 0; }
+  .nav a.l { display: block; padding: 16px 2px; font: 600 18px/1 var(--display); letter-spacing: .06em; color: var(--fg); }
+  .chip-btn { padding: 12px 14px; }
+  .btn { padding: 15px 18px; }
+  .copy { padding: 10px 12px; }
+  .portrait { max-width: 320px; margin-inline: auto; }
+  section.block { padding-block: 56px; }
+  .lede { font-size: 16px; }
+  .facts dd { font-size: 14.5px; }
+  .co-head img, .mono-mark { height: 48px; }
+  .mono-mark { width: 48px; font-size: 15px; }
+  .stat .num { font-size: clamp(52px, 17vw, 72px); }
+  .head-row { gap: 24px; }
+}
+/* phones held sideways: short screens */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero h1 { font-size: clamp(28px, 4.6vw, 44px); }
+  .hero-line, .hero-eyebrow { display: none; }
+  .hero-copy { gap: 10px; width: min(44%, 420px); }
+  .hero-ctrl { bottom: calc(10px + env(safe-area-inset-bottom, 0px)); }
+  .scroll-cue { display: none; }
+}
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font: 400 12px/1.6 var(--mono); color: var(--faint); letter-spacing: .06em; }
+
+@media (max-width: 960px) {
+  .group { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+}
+@media (max-width: 860px) {
+  .about, .studio, .contact { grid-template-columns: minmax(0, 1fr); }
+  .portrait { max-width: 440px; }
+  .cos { grid-template-columns: minmax(0, 1fr); }
+  .items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .items > .item:nth-child(3):last-child { grid-column: 1 / -1; }
+  .also { grid-template-columns: minmax(0, 1fr); }
+  .rec li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+}
+@media (max-width: 560px) {
+  .items { grid-template-columns: minmax(0, 1fr); }
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .stats-row { grid-template-columns: minmax(0, 1fr); }
+  .nav ul { gap: 14px; }
+  .line-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .line-row dt { grid-column: 1 / -1; }
+  .svc li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .svc li span:last-child { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HOME: live title sequence (drawn in code) ============ -->
+<header class="hero intro-on" id="top" aria-label="Home">
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <canvas id="glow" aria-hidden="true"></canvas>
+  <div class="hero-copy" id="heroCopy">
+    <p class="hero-eyebrow">Founder &amp; CEO</p>
+    <h1 id="heroName">Nandhu S.<br>Mahendran</h1>
+    <ul class="hero-roles" aria-label="Companies">
+      <li>Blunar Co</li><li>Zeshin</li><li>Med Blunar</li><li>HodoMate</li>
+    </ul>
+    <p class="hero-line">Building software, medtech and travel technology from Ramanathapuram, Tamil Nadu.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#work">See the work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-ctrl">
+    <button class="chip-btn" id="replay" type="button">Replay intro</button>
+    <button class="chip-btn" id="skip" type="button">Skip intro</button>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</header>
+
+<nav class="nav" aria-label="Sections">
+  <div class="nav-in">
+    <a class="mark" href="#top">NANDHU S. M.</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navList"><span class="bars" aria-hidden="true"></span>Menu</button>
+    <ul id="navList">
+      <li><a class="l" href="#companies">Companies</a></li>
+      <li><a class="l" href="#work">Work</a></li>
+      <li><a class="l" href="#studio">Studio</a></li>
+      <li><a class="l" href="#recognition">Recognition</a></li>
+      <li><a class="l" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- ABOUT -->
+  <section class="block" id="about">
+    <div class="wrap about">
+      <figure class="portrait">
+        <img src="assets/portrait.jpg" alt="Nandhu S. Mahendran rendered as a silver dot-scan portrait, arms folded, wearing sunglasses" width="810" height="990">
+      </figure>
+      <div class="about-copy">
+        <p class="eyebrow">About</p>
+        <h2>I build companies that solve problems close to home.</h2>
+        <p class="bio">I'm Nandhu S. Mahendran, Founder &amp; CEO of four companies based in Ramanathapuram. Blunar Co is the parent company. Zeshin builds software and AI products, Med Blunar builds medical technology, and HodoMate builds technology for travel and tourism.</p>
+        <p class="bio">Blunar Co also runs a digital marketing studio for businesses across Tamil Nadu. I'm an ECE student at Syed Ammal Engineering College, where much of our team and our first products started.</p>
+        <dl class="facts">
+          <div><dt>Base</dt><dd>Ramanathapuram, Tamil Nadu</dd></div>
+          <div><dt>Builds</dt><dd>Software, medtech, travel tech</dd></div>
+          <div><dt>Studio</dt><dd>Tamil-first digital marketing</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANIES -->
+  <section class="block" id="companies">
+    <div class="wrap">
+      <p class="eyebrow">Companies</p>
+      <h2>Four companies, one founder.</h2>
+      <p class="lede">Blunar Co is the parent company. Zeshin, Med Blunar and HodoMate each focus on one field.</p>
+      <div class="cos">
+        <article class="co blunar">
+          <div class="co-head">
+            <img src="assets/blunar-white.png" alt="Blunar Co logo" width="59" height="56">
+            <div><h3>Blunar Co</h3><div class="co-role">Founder &amp; CEO · Parent company</div></div>
+          </div>
+          <p>A technology startup building products across software, apps, AI tools, digital devices and environmental-impact technology, with a digital marketing studio for businesses across Tamil Nadu.</p>
+          <ul class="tags"><li>Software &amp; apps</li><li>AI tools</li><li>Digital devices</li><li>Digital marketing</li></ul>
+          <a class="out" href="https://blunar.co.in" target="_blank" rel="noopener">blunar.co.in ↗</a>
+        </article>
+        <article class="co zeshin">
+          <div class="co-head">
+            <img src="assets/zeshin-white.png" alt="Zeshin logo" width="56" height="56">
+            <div><h3>Zeshin</h3><div class="co-role">Founder &amp; CEO · Software &amp; AI</div></div>
+          </div>
+          <p>Beyond the build. A software company built by young engineers, making SaaS products, custom business software, business websites and AI automation for businesses and institutions.</p>
+          <ul class="tags"><li>SaaS</li><li>Custom software</li><li>Websites</li><li>AI automation</li></ul>
+          <a class="out" href="https://zeshin.in" target="_blank" rel="noopener">zeshin.in ↗</a>
+        </article>
+        <article class="co med">
+          <div class="co-head">
+            <span class="mono-mark" aria-hidden="true">MB</span>
+            <div><h3>Med Blunar</h3><div class="co-role">Founder &amp; CEO · Medtech</div></div>
+          </div>
+          <p>A medtech startup building medical devices and health technology. Our first product, ViMatt, has a completed prototype and is in development, alongside the SpineEase therapeutic vest.</p>
+          <ul class="tags"><li>Medical devices</li><li>Wearables</li><li>Health technology</li></ul>
+          <span class="out plain">ViMatt · SpineEase Vest</span>
+        </article>
+        <article class="co hodo">
+          <div class="co-head">
+            <span class="mono-mark" aria-hidden="true">HM</span>
+            <div><h3>HodoMate</h3><div class="co-role">Founder &amp; CEO · Tourismtech</div></div>
+          </div>
+          <p>A tourismtech startup building technology for travellers and the tourism businesses that host them.</p>
+          <ul class="tags"><li>Travel</li><li>Tourism</li><li>Technology</li></ul>
+          <span class="out plain">Tourism technology</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="head-row">
+        <div>
+          <p class="eyebrow">Work</p>
+          <h2>Products and builds.</h2>
+          <p class="lede">Status is shown honestly: what's live, what's in pilot, and what's still being built.</p>
+        </div>
+        <div class="stat">
+          <span class="num" data-to="15" data-suffix="+">15+</span>
+          <span class="lab">Companies we've built web products and software for</span>
+        </div>
+      </div>
+      <div class="groups">
+        <div class="group" style="--gc: var(--blue)">
+          <div class="group-label">Zeshin<small>Software &amp; AI</small></div>
+          <div class="items" style="--n: 3">
+            <article class="item">
+              <span class="status s-pilot">Pilot · live at one college</span>
+              <h3>FOSIC</h3>
+              <p>Campus canteen food ordering. Students order ahead and pick up, so the canteen runs without the rush at the counter.</p>
+              <span class="meta">SaaS · campus food</span>
+            </article>
+            <article class="item">
+              <span class="status s-live">Live</span>
+              <h3>SchoolKnot</h3>
+              <p>A lightweight, Tamil-first parent–teacher app with zero-friction sign-up and voice notes for parents who prefer listening to reading.</p>
+              <span class="meta"><a href="https://schoolknot.zeshin.in" target="_blank" rel="noopener">schoolknot.zeshin.in ↗</a></span>
+            </article>
+            <article class="item">
+              <span class="status s-live">Live</span>
+              <h3>Abacus Centre Manager</h3>
+              <p>A management system for abacus training centres: students, batches and centre administration in one place.</p>
+              <span class="meta"><a href="https://ucmas-seven.vercel.app" target="_blank" rel="noopener">ucmas-seven.vercel.app ↗</a></span>
+            </article>
+          </div>
+        </div>
+        <div class="group" style="--gc: var(--mint)">
+          <div class="group-label">Med Blunar<small>Medtech</small></div>
+          <div class="items" style="--n: 2">
+            <article class="item">
+              <span class="status s-proto">Prototype completed · in development</span>
+              <h3>ViMatt</h3>
+              <p>Med Blunar's first product. The prototype is complete and the product is now in development.</p>
+              <span class="meta">Med Blunar · first product</span>
+            </article>
+            <article class="item">
+              <span class="status s-proto">Prototype</span>
+              <h3>SpineEase Vest</h3>
+              <p>A therapeutic haptic vest: eight motors in four pairs along the spine, from neck to lower back, cycling gentle vibration region by region.</p>
+              <span class="meta">ESP32-S3 · PWM motor control</span>
+            </article>
+          </div>
+        </div>
+        <div class="group">
+          <div class="group-label">More builds<small>Platforms &amp; events</small></div>
+          <div class="items" style="--n: 2">
+            <article class="item">
+              <span class="status s-dev">In development</span>
+              <h3>HealthCom</h3>
+              <p>A connected healthcare platform linking patients with local doctors, labs and pharmacies, built around a personal Health Timeline.</p>
+              <span class="meta">Healthcare platform</span>
+            </article>
+            <article class="item">
+              <span class="status s-event">Event · 26 Oct 2026</span>
+              <h3>VOLTRA 26</h3>
+              <p>Website for the national-level technical symposium of the ECE &amp; BME departments at Syed Ammal Engineering College, where I served as an Executive Member.</p>
+              <span class="meta"><a href="https://voltrasaec.online" target="_blank" rel="noopener">voltrasaec.online ↗</a></span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIO -->
+  <section class="block" id="studio">
+    <div class="wrap">
+      <p class="eyebrow">Studio</p>
+      <h2>Marketing that speaks the local language.</h2>
+      <p class="lede">The Blunar Co studio plans and produces content for businesses across Tier-2 and Tier-3 Tamil Nadu, in Tamil and Tanglish, for the platforms people here actually use.</p>
+      <div class="studio">
+        <ul class="svc">
+          <li><span>Social media &amp; content production</span><span>Instagram · Facebook · LinkedIn</span></li>
+          <li><span>Reels scripting</span><span>Tamil / Tanglish</span></li>
+          <li><span>Hyperlocal Meta advertising</span><span>Boost vs Ads Manager</span></li>
+          <li><span>WhatsApp-first funnels</span><span>Enquiry → order</span></li>
+          <li><span>Local SEO &amp; Google Ads</span><span>Search · Maps</span></li>
+          <li><span>Founder &amp; personal branding</span><span>Instagram · Facebook · YouTube</span></li>
+        </ul>
+        <div class="studio-stat">
+          <div class="stat">
+            <span class="num g" data-to="20" data-suffix="+">20+</span>
+            <span class="lab">Businesses we've run marketing for</span>
+          </div>
+          <p>Food and cafés, automobiles and EVs, fashion, building materials and home businesses, from launch campaigns to everyday content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section class="block" id="recognition">
+    <div class="wrap">
+      <p class="eyebrow">Recognition</p>
+      <h2>On stage, and in the room.</h2>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="num" data-to="30" data-suffix="+">30+</span>
+          <span class="lab">Colleges across Tamil Nadu where I've competed in technical events</span>
+        </div>
+        <div class="stat">
+          <span class="num g" data-to="40" data-suffix="+">40+</span>
+          <span class="lab">Technical events won</span>
+        </div>
+      </div>
+      <div class="rec">
+        <ul>
+          <li><strong>1st Place, Dakshaa</strong><span>National-level techno-cultural fest.</span></li>
+          <li><strong>4th Prize &amp; Investment Cohort</strong><span>Dindigul Science &amp; Technology Fest, organised by Kaar Tech and Startup TN. Blunar Co was selected for the investment cohort.</span></li>
+          <li><strong>MSME Idea Hackathon 2026</strong><span>Presented in the filtration round at the Solamalai Foundation for Startup Incubation.</span></li>
+          <li><strong>VOLTRA 26, Executive Member</strong><span>Organising committee and website for the national-level symposium of the ECE &amp; BME departments, Syed Ammal Engineering College.</span></li>
+        </ul>
+      </div>
+      <div class="also">
+        <div><h3>Training programs</h3><p>Blunar Co has run training in data analysis, cyber security and LinkedIn for students.</p></div>
+        <div><h3>Campus entrepreneurship</h3><p>Outreach sessions on starting up, including sessions with the college's Institution's Innovation Council.</p></div>
+        <div><h3>Campus hiring</h3><p>Zeshin has hired engineers through campus interviews at Syed Ammal Engineering College.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="block" id="contact">
+    <div class="wrap contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <p class="big">Let's build<br>something <em>real.</em></p>
+        <p class="lede">For products, software, partnerships or marketing work, write to the right company below.</p>
+      </div>
+      <div class="lines">
+        <dl>
+          <div class="line-row"><dt>Blunar Co</dt><dd id="e1">blunar.company@gmail.com</dd><button class="copy" type="button" data-copy="e1">Copy</button></div>
+          <div class="line-row"><dt>Zeshin</dt><dd id="e2">zeshin.company@gmail.com</dd><button class="copy" type="button" data-copy="e2">Copy</button></div>
+          <div class="line-row"><dt>Websites</dt><dd><a href="https://blunar.co.in" target="_blank" rel="noopener">blunar.co.in ↗</a> &nbsp; <a href="https://zeshin.in" target="_blank" rel="noopener">zeshin.in ↗</a></dd><span></span></div>
+          <div class="line-row"><dt>Instagram</dt><dd><a href="https://instagram.com/nandhu_s.m" target="_blank" rel="noopener">@nandhu_s.m ↗</a></dd><span></span></div>
+          <div class="line-row"><dt>Office</dt><dd id="e3">No. 30, Mariyamman Kovil Street, Ramanathapuram – 623501</dd><button class="copy" type="button" data-copy="e3">Copy</button></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Nandhu S. Mahendran</span>
+    <span>Opening sequence drawn live in code from a single photograph</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var hero = document.getElementById('top');
+  var cv = document.getElementById('fx'), ctx = cv.getContext('2d');
+  var gcv = document.getElementById('glow'), gctx = gcv.getContext('2d');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, DPR = 1, layout = null;
+  var BL = null, ZE = null, PT = null, DUST = null, RK = null;
+  var t0 = 0, raf = 0, running = true, skipped = false, revealed = false;
+  var mouse = { x: -9999, y: -9999 };
+  var COARSE = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  var IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var DPR_CAP = IOS ? 2 : 2, lastNow = 0, slowFrames = 0, sampled = 0, degraded = false;
+
+  // timeline (seconds)
+  var T = { hit: 0.9, bStart: 1.0, sheen: 2.75, glitch0: 3.15, bx: 3.5, zs0: 3.95, zs1: 4.95, imp: 5.35, boom: 5.62,
+            p0: 5.66, scan0: 6.35, scan1: 8.6, impact: 8.72, end: 9.1 };
+
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+  function clamp(x, a, b) { return x < a ? a : x > b ? b : x; }
+  function ease(u) { u = clamp(u, 0, 1); return u * u * (3 - 2 * u); }
+  function eout(u, p) { u = clamp(u, 0, 1); return 1 - Math.pow(1 - u, p || 3); }
+  function ein(u, p) { u = clamp(u, 0, 1); return Math.pow(u, p || 3); }
+  function invSmooth(y) { // inverse of smoothstep on [0,1]
+    y = clamp(y, 0, 1); return 0.5 - Math.sin(Math.asin(1 - 2 * y) / 3);
+  }
+  function loadImg(src) {
+    return new Promise(function (res, rej) { var i = new Image(); i.onload = function () { res(i); }; i.onerror = rej; i.src = src; });
+  }
+
+  function computeLayout() {
+    var desk = (W > 860 && W / H > 1.05) || (W >= 560 && W / H > 1.3);
+    var L = { desk: desk };
+    L.lx = desk ? W * 0.5 : W * 0.5;
+    L.ly = H * 0.46;
+    var mapAR = 600 / 754;
+    if (desk) {
+      L.ph = H * 0.9; L.pw = L.ph * mapAR;
+      if (L.pw > W * 0.52) { L.pw = W * 0.52; L.ph = L.pw / mapAR; }
+      L.px = (W < 1000 ? W * 0.76 : W * 0.70) - L.pw / 2; if (L.px + L.pw > W) L.px = W - L.pw; L.py = H - L.ph;
+    } else {
+      L.pw = Math.min(W * 1.02, H * 0.66 * mapAR); L.ph = L.pw / mapAR;
+      L.px = (W - L.pw) / 2; L.py = H * 0.04;
+    }
+    L.fcx = L.px + L.pw * 0.47; L.fcy = L.py + L.ph * 0.22;
+    return L;
+  }
+
+  // sample white-logo alpha into dot targets
+  function sampleLogo(img, maxW, maxH, step) {
+    var s = Math.min(maxW / img.width, maxH / img.height);
+    var w = Math.max(1, Math.round(img.width * s)), h = Math.max(1, Math.round(img.height * s));
+    var oc = document.createElement('canvas'); oc.width = w; oc.height = h;
+    var o = oc.getContext('2d'); o.drawImage(img, 0, 0, w, h);
+    var d = o.getImageData(0, 0, w, h).data, pts = [];
+    for (var y = step / 2; y < h; y += step) for (var x = step / 2; x < w; x += step) {
+      var a = d[((y | 0) * w + (x | 0)) * 4 + 3];
+      if (a > 120) pts.push(x - w / 2, y - h / 2);
+    }
+    return { pts: pts, w: w, h: h };
+  }
+
+  function samplePortrait(img, L, maxN) {
+    var mw = img.width, mh = img.height;
+    var oc = document.createElement('canvas'); oc.width = mw; oc.height = mh;
+    var o = oc.getContext('2d'); o.drawImage(img, 0, 0);
+    var d = o.getImageData(0, 0, mw, mh).data;
+    var k = L.ph / mh;                  // display px per map px
+    var row = Math.max(2.4, L.ph / 300), col = row * 0.62;
+    var out = [];
+    for (var y = 0; y < L.ph; ) {
+      var my = Math.min(mh - 1, (y / k) | 0);
+      var faceRow = 0;
+      for (var x = 0; x < L.pw; x += col) {
+        var mx = Math.min(mw - 1, ((x + rnd(-0.4, 0.4)) / k) | 0);
+        var i = (my * mw + mx) * 4;
+        var v = d[i] / 255, f = d[i + 1] / 255, a = d[i + 2];
+        if (f > faceRow) faceRow = f;
+        if (a < 100 || v < 0.08) continue;
+        if (Math.random() > Math.pow(Math.min(1, v * 1.4), 0.6)) continue;
+        out.push(L.px + x, L.py + y, Math.min(v * 1.35, 1.15), f);
+      }
+      y += faceRow > 0.3 ? row * 0.72 : row;
+    }
+    // thin out if too many (keep face detail first)
+    var n = out.length / 4;
+    if (n > maxN) {
+      var keep = [], ratio = maxN / n;
+      for (var j = 0; j < n; j++) if (out[j * 4 + 3] > 0.5 || Math.random() < ratio * 0.85) keep.push(out[j * 4], out[j * 4 + 1], out[j * 4 + 2], out[j * 4 + 3]);
+      out = keep;
+    }
+    return out;
+  }
+
+  function build(imgs) {
+    layout = computeLayout();
+    var L = layout;
+    var small = W < 700;
+    // Blunar
+    var b = sampleLogo(imgs.bl, Math.min(W * 0.62, 460), H * 0.36, small ? 4.2 : 4.6);
+    var n = b.pts.length / 2;
+    BL = { n: n, tx: new Float32Array(n), ty: new Float32Array(n), arr: new Float32Array(n), st: new Float32Array(n),
+           ang: new Float32Array(n), r: new Float32Array(n), z: new Float32Array(n), spin: new Float32Array(n),
+           ex: new Float32Array(n), ey: new Float32Array(n), ez: new Float32Array(n) };
+    for (var i = 0; i < n; i++) {
+      BL.tx[i] = L.lx + b.pts[i * 2]; BL.ty[i] = L.ly + b.pts[i * 2 + 1];
+      BL.arr[i] = T.bStart + 0.65 + Math.random() * 0.85 + (b.pts[i * 2] / b.w + 0.5) * 0.25;
+      BL.st[i] = BL.arr[i] - rnd(0.55, 1.0);
+      BL.ang[i] = rnd(0, 6.283); BL.r[i] = rnd(0.6, 1.9) * Math.max(W, H) * 0.6;
+      BL.z[i] = rnd(-0.4, 2.2) * 1000; BL.spin[i] = rnd(1.2, 3.2) * (Math.random() < 0.5 ? -1 : 1);
+      var gx = rnd(-1, 1), gy = rnd(-1, 1), gz = -Math.abs(rnd(-0.2, 1)), gl = Math.hypot(gx, gy, gz) || 1, sp = rnd(300, 1500);
+      BL.ex[i] = gx / gl * sp; BL.ey[i] = gy / gl * sp; BL.ez[i] = gz / gl * sp;
+    }
+    // Zeshin
+    var z = sampleLogo(imgs.ze, Math.min(W * 0.5, 380), H * 0.38, small ? 4.6 : 5.2);
+    n = z.pts.length / 2;
+    ZE = { n: n, tx: new Float32Array(n), ty: new Float32Array(n), hit: new Float32Array(n), y0: 0, y1: 0, sv: new Float32Array(n * 2) };
+    var ymin = 1e9, ymax = -1e9;
+    for (i = 0; i < n; i++) { ZE.tx[i] = L.lx + z.pts[i * 2]; ZE.ty[i] = L.ly + z.pts[i * 2 + 1]; ymin = Math.min(ymin, ZE.ty[i]); ymax = Math.max(ymax, ZE.ty[i]); }
+    ZE.y0 = ymin - 12; ZE.y1 = ymax + 12;
+    for (i = 0; i < n; i++) {
+      ZE.hit[i] = T.zs0 + (T.zs1 - T.zs0) * invSmooth((ZE.ty[i] - ZE.y0) / (ZE.y1 - ZE.y0));
+      ZE.sv[i * 2] = rnd(-260, 260); ZE.sv[i * 2 + 1] = rnd(-260, 60);
+    }
+    // Portrait
+    var p = samplePortrait(imgs.pm, L, small ? 7000 : 11000);
+    n = p.length / 4;
+    PT = { n: n, tx: new Float32Array(n), ty: new Float32Array(n), b: new Float32Array(n), lock: new Float32Array(n), arr: new Float32Array(n),
+           st: new Float32Array(n), sx: new Float32Array(n), sy: new Float32Array(n), sw: new Float32Array(n), sh: new Float32Array(n),
+           ox: new Float32Array(n), oy: new Float32Array(n), vx: new Float32Array(n), vy: new Float32Array(n), y0: 0, y1: 0 };
+    ymin = 1e9; ymax = -1e9;
+    for (i = 0; i < n; i++) { PT.tx[i] = p[i * 4]; PT.ty[i] = p[i * 4 + 1]; PT.b[i] = p[i * 4 + 2]; ymin = Math.min(ymin, PT.ty[i]); ymax = Math.max(ymax, PT.ty[i]); }
+    PT.y0 = ymin - 20; PT.y1 = ymax + 20;
+    for (i = 0; i < n; i++) {
+      PT.lock[i] = T.scan0 + (T.scan1 - T.scan0) * invSmooth((PT.y1 - PT.ty[i]) / (PT.y1 - PT.y0));
+      PT.arr[i] = PT.lock[i] - rnd(0, 0.08);
+      PT.st[i] = Math.max(T.p0, PT.arr[i] - rnd(0.45, 0.95));
+      PT.sx[i] = PT.tx[i] + rnd(-10, 10); PT.sy[i] = H + rnd(40, 1100);
+      PT.sw[i] = rnd(-26, 26); PT.sh[i] = rnd(0, 6.283);
+    }
+    // rockets & dust
+    var nr = small ? 500 : 1100;
+    RK = { n: nr, x: new Float32Array(nr), t: new Float32Array(nr), v: new Float32Array(nr), b: new Float32Array(nr) };
+    for (i = 0; i < nr; i++) { RK.x[i] = clamp(L.px + L.pw / 2 + (Math.random() + Math.random() - 1) * L.pw * 0.8, 0, W); RK.t[i] = rnd(T.p0, T.scan1); RK.v[i] = rnd(1600, 3400); RK.b[i] = rnd(0.25, 0.8); }
+    var nd = small ? 160 : 320;
+    DUST = { n: nd, x: new Float32Array(nd), y: new Float32Array(nd), d: new Float32Array(nd), ph: new Float32Array(nd), vx: new Float32Array(nd), vy: new Float32Array(nd) };
+    for (i = 0; i < nd; i++) { DUST.x[i] = rnd(0, W); DUST.y[i] = rnd(0, H); DUST.d[i] = Math.random(); DUST.ph[i] = rnd(0, 6.28); DUST.vx[i] = rnd(-6, 6); DUST.vy[i] = rnd(-16, -3); }
+  }
+
+  function resize() {
+    var r = hero.getBoundingClientRect();
+    DPR = degraded ? 1 : Math.min(window.devicePixelRatio || 1, DPR_CAP);
+    W = Math.max(320, r.width); H = Math.max(480, r.height);
+    cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+    var gd = COARSE ? 6 : 4;
+    gcv.width = Math.round(W / gd); gcv.height = Math.round(H / gd);
+  }
+
+  function flash(t, at, dur, amp) { var x = t - at; return x >= 0 ? amp * Math.exp(-x / dur) : 0; }
+
+  // ---------- drawing ----------
+  function frame(now) {
+    if (!running) { raf = 0; return; }
+    var t = (now - t0) / 1000;
+    if (skipped) t = Math.max(t, T.end + 0.01);
+    var dt = lastNow ? now - lastNow : 16;
+    // adaptive quality: if the phone struggles early on, drop to 1x pixels
+    if (!degraded && t > 0.5 && t < 3) { sampled++; if (dt > 30) slowFrames++; if (sampled > 40 && slowFrames / sampled > 0.5) { degraded = true; resize(); } }
+    // once settled, idle at ~30fps on touch devices to save battery
+    if (COARSE && revealed && t > T.end + 1 && dt < 30 && lastNow) { raf = requestAnimationFrame(frame); return; }
+    lastNow = now;
+    draw(t);
+    if (t >= T.end && !revealed) reveal();
+    raf = requestAnimationFrame(frame);
+  }
+
+  function draw(t) {
+    var L = layout, i;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    // trails while things are moving fast, crisp otherwise
+    var streaky = (t > T.bStart && t < T.sheen) || (t > T.bx && t < T.bx + 1.1) || (t > T.p0 + 0.45 && t < T.scan1 + 0.1);
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = streaky ? 'rgba(3,2,5,0.28)' : 'rgb(3,2,5)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+
+    // light shaft + dust
+    var sh = t < 0.6 ? t / 0.6 * 0.10 : t < 2.4 ? 0.10 - (t - 0.6) / 1.8 * 0.07 : 0.03;
+    var gx = W * 0.32;
+    var g = ctx.createLinearGradient(gx - W * 0.25, 0, gx + W * 0.25, 0);
+    g.addColorStop(0, 'rgba(227,197,140,0)'); g.addColorStop(0.5, 'rgba(227,197,140,' + sh.toFixed(3) + ')'); g.addColorStop(1, 'rgba(227,197,140,0)');
+    ctx.save(); ctx.translate(gx, 0); ctx.rotate(-0.3); ctx.translate(-gx, 0); ctx.fillStyle = g; ctx.fillRect(gx - W * 0.3, -H * 0.2, W * 0.6, H * 1.3); ctx.restore();
+    var dv = Math.min(1, t / 0.6) * (t > T.end ? 0.55 : 0.9);
+    for (i = 0; i < DUST.n; i++) {
+      var dx = (DUST.x[i] + DUST.vx[i] * t + 18 * Math.sin(t * 0.4 + DUST.ph[i]) + W) % W;
+      var dy = ((DUST.y[i] + DUST.vy[i] * t * (0.5 + DUST.d[i])) % H + H) % H;
+      var sz = 0.8 + DUST.d[i] * 2.4;
+      ctx.globalAlpha = dv * (0.25 + 0.35 * Math.sin(t * 2 + DUST.ph[i]) + 0.35) * (1 - DUST.d[i] * 0.5);
+      ctx.fillStyle = '#e3c58c'; ctx.fillRect(dx, dy, sz, sz);
+    }
+
+    // anamorphic light hit
+    var hit = flash(t, T.hit, 0.22, 1) * (t < 2.2 ? 1 : 0);
+    if (hit > 0.01) {
+      var lg = ctx.createLinearGradient(0, 0, W, 0);
+      lg.addColorStop(0, 'rgba(190,220,255,0)'); lg.addColorStop(clamp((t - T.hit) * 1.6 + 0.2, 0, 1), 'rgba(220,235,255,' + hit + ')'); lg.addColorStop(1, 'rgba(190,220,255,0)');
+      ctx.globalAlpha = 1; ctx.fillStyle = lg; ctx.fillRect(0, L.ly - 2, W, 4);
+      radial(L.lx, L.ly, 220, 'rgba(220,235,255,', hit * 0.35);
+    }
+
+    // Blunar from gold sparks
+    if (t >= T.bStart && t < T.bx + 1.4) drawBlunar(t);
+    // Zeshin hologram scan
+    if (t >= T.zs0 - 0.1 && t < T.boom) drawZeshin(t);
+    // boom + shockwave
+    var fb = flash(t, T.boom, 0.12, 1);
+    if (fb > 0.01) { radial(L.lx, L.ly, Math.min(W, H) * 0.45, 'rgba(235,240,250,', fb * 0.55); }
+    if (t >= T.boom && t < T.boom + 1) ring(L.lx, L.ly, (t - T.boom) * Math.max(W, H) * 1.3, 1 - (t - T.boom), 'rgba(245,235,215,', 10 + (t - T.boom) * 30);
+    // portrait shooting up
+    if (t >= T.p0) drawPortrait(t);
+    // final impact ring
+    if (t >= T.impact && t < T.impact + 1.1) ring(L.fcx, L.fcy, (t - T.impact) * Math.max(W, H) * 0.9, 1 - (t - T.impact) / 1.1, 'rgba(227,197,140,', 12 + (t - T.impact) * 30);
+    var fi = flash(t, T.impact, 0.12, 0.6);
+    if (fi > 0.01) radial(L.fcx, L.fcy, L.pw * 0.8, 'rgba(235,240,250,', fi);
+
+    // glitch slices
+    if ((t > T.glitch0 && t < T.bx) || flash(t, T.boom - 0.02, 0.05, 1) > 0.3) {
+      ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+      for (var k = 0; k < 7; k++) {
+        var y = Math.random() * H, h = 4 + Math.random() * 60, off = (Math.random() - 0.5) * 70;
+        ctx.drawImage(cv, 0, y * DPR, W * DPR, h * DPR, off, y, W, h);
+      }
+    }
+    ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+    // glow pass
+    gctx.clearRect(0, 0, gcv.width, gcv.height);
+    gctx.drawImage(cv, 0, 0, gcv.width, gcv.height);
+  }
+
+  function radial(x, y, r, rgbaPrefix, a) {
+    var g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, rgbaPrefix + a + ')'); g.addColorStop(1, rgbaPrefix + '0)');
+    ctx.globalAlpha = 1; ctx.fillStyle = g; ctx.fillRect(x - r, y - r, r * 2, r * 2);
+  }
+  function ring(x, y, r, a, rgbaPrefix, w) {
+    if (a <= 0) return;
+    ctx.globalAlpha = 1; ctx.strokeStyle = rgbaPrefix + (a * 0.9) + ')'; ctx.lineWidth = w;
+    ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.stroke();
+  }
+
+  function drawBlunar(t) {
+    var L = layout, F = 1100, i;
+    ctx.fillStyle = '#ecc98a';
+    var boost = t < T.bStart + 1.6 ? 1.6 : 1;
+    var tau = Math.max(0, t - T.bx), f = (1 - Math.exp(-1.6 * tau)) / 1.6;
+    var sheenX = t >= T.sheen && t <= T.sheen + 0.45 ? (-0.3 + (t - T.sheen) / 0.45 * 1.6) * W : -1e9;
+    for (i = 0; i < BL.n; i++) {
+      if (t < BL.st[i]) continue;
+      var u = clamp((t - BL.st[i]) / (BL.arr[i] - BL.st[i]), 0, 1), k = 1 - eout(u, 3);
+      var th = BL.ang[i] + BL.spin[i] * k;
+      var x = BL.tx[i] - L.lx + Math.cos(th) * BL.r[i] * k, y = BL.ty[i] - L.ly + Math.sin(th) * BL.r[i] * k, z = BL.z[i] * k;
+      var a = Math.min(1, (t - BL.st[i]) / 0.25) * boost;
+      if (t >= BL.arr[i]) a = 1 + 1.8 * Math.exp(-(t - BL.arr[i]) * 7);
+      if (t >= T.bx) { x += BL.ex[i] * f; y += BL.ey[i] * f + 120 * tau * tau; z += BL.ez[i] * f; a = Math.max(0, 1 - tau / 1.3) * 1.2; }
+      var den = F + z; if (den < 40) continue;
+      var sx = L.lx + x * F / den, sy = L.ly + y * F / den, s = clamp(1.9 * F / den, 1, 7);
+      if (sheenX > -1e8) { var dd = (sx - sheenX) + (sy - L.ly) * 0.5; a *= 1 + 2.2 * Math.exp(-(dd * dd) / 8000); }
+      ctx.globalAlpha = Math.min(1, a * 0.75); ctx.fillRect(sx - s / 2, sy - s / 2, s, s);
+    }
+  }
+
+  function drawZeshin(t) {
+    var L = layout, i;
+    var k = t >= T.imp ? ein((t - T.imp) / (T.boom - T.imp), 3) : 0;
+    var flick = 0.85 + 0.15 * Math.sin(t * 37) * Math.sin(t * 13);
+    ctx.fillStyle = '#9cc5ff';
+    for (i = 0; i < ZE.n; i++) {
+      if (t < ZE.hit[i]) continue;
+      var x = ZE.tx[i] + (L.lx - ZE.tx[i]) * k, y = ZE.ty[i] + (L.ly - ZE.ty[i]) * k;
+      if (((y | 0) % 3) === 0) continue;   // hologram scan lines
+      var a = (1 + 2 * Math.exp(-(t - ZE.hit[i]) * 9)) * flick * (1 + 2 * k);
+      ctx.globalAlpha = Math.min(1, a); ctx.fillRect(x - 1.5, y - 1.5, 3, 3);
+      var age = t - ZE.hit[i];
+      if (age < 0.5 && (i % 3) === 0) { // falling sparks off the laser
+        ctx.globalAlpha = (1 - age / 0.5) * 0.9;
+        ctx.fillRect(ZE.tx[i] + ZE.sv[i * 2] * age, ZE.ty[i] + ZE.sv[i * 2 + 1] * age + 900 * age * age, 1.6, 1.6);
+      }
+    }
+    if (t >= T.zs0 - 0.05 && t <= T.zs1 + 0.05) {
+      var ly = ZE.y0 + (ZE.y1 - ZE.y0) * ease((t - T.zs0) / (T.zs1 - T.zs0));
+      scanLine(ly, L.lx, Math.min(W * 0.45, 360), 'rgba(170,210,255,');
+    }
+  }
+
+  function scanLine(y, cx, half, rgbaPrefix) {
+    var g = ctx.createLinearGradient(cx - half * 1.4, 0, cx + half * 1.4, 0);
+    g.addColorStop(0, rgbaPrefix + '0)'); g.addColorStop(0.5, rgbaPrefix + '1)'); g.addColorStop(1, rgbaPrefix + '0)');
+    ctx.globalAlpha = 1; ctx.fillStyle = g; ctx.fillRect(cx - half * 1.4, y - 1.2, half * 2.8, 2.4);
+    ctx.globalAlpha = 0.25; ctx.fillRect(cx - half * 1.4, y - 14, half * 2.8, 28);
+  }
+
+  function drawPortrait(t) {
+    var L = layout, i, settled = t > T.scan1 + 0.3;
+    var dw = Math.max(1.8, L.ph / 300 * 0.9), dh = Math.max(1, dw * 0.5);
+    ctx.fillStyle = '#e6eef6';
+    var push = 1 + 0.03 * ease((t - T.impact) / 6);
+    for (i = 0; i < PT.n; i++) {
+      if (t < PT.st[i]) continue;
+      var x, y, a;
+      if (t >= PT.lock[i]) {
+        x = PT.tx[i]; y = PT.ty[i];
+        a = PT.b[i] * (1 + 1.6 * Math.exp(-(t - PT.lock[i]) * 6));
+        if (settled) {
+          a *= 0.86 + 0.14 * Math.sin(t * 4 + PT.sh[i]);
+          // pointer repel with spring back
+          var mx = x + PT.ox[i] - mouse.x, my = y + PT.oy[i] - mouse.y, d2 = mx * mx + my * my;
+          if (d2 < 6400) { var fz = (1 - d2 / 6400) * 2.2, d = Math.sqrt(d2) || 1; PT.vx[i] += mx / d * fz; PT.vy[i] += my / d * fz; }
+          PT.vx[i] = (PT.vx[i] - PT.ox[i] * 0.06) * 0.86; PT.vy[i] = (PT.vy[i] - PT.oy[i] * 0.06) * 0.86;
+          PT.ox[i] += PT.vx[i]; PT.oy[i] += PT.vy[i];
+          x += PT.ox[i]; y += PT.oy[i];
+        }
+        x = L.fcx + (x - L.fcx) * push; y = L.fcy + (y - L.fcy) * push;
+      } else {
+        var u = clamp((t - PT.st[i]) / (PT.arr[i] - PT.st[i]), 0, 1);
+        y = PT.sy[i] + (PT.ty[i] - PT.sy[i]) * eout(u, 3);
+        x = PT.sx[i] + (PT.tx[i] - PT.sx[i]) * eout(u, 2) + PT.sw[i] * Math.sin(u * 3.14159) * (1 - u);
+        a = Math.min(1, (t - PT.st[i]) / 0.12) * 1.1;
+      }
+      ctx.globalAlpha = Math.min(1, a * 0.85); ctx.fillRect(x, y, dw, dh);
+    }
+    // shooting rockets
+    if (t < T.scan1 + 0.3) {
+      ctx.fillStyle = '#dfe9ff';
+      for (i = 0; i < RK.n; i++) {
+        var age = t - RK.t[i]; if (age < 0) continue;
+        var ry = H + 40 - RK.v[i] * age; if (ry < -120) continue;
+        ctx.globalAlpha = RK.b[i]; ctx.fillRect(RK.x[i], ry, 1.3, 26);
+      }
+    }
+    if (t >= T.scan0 - 0.05 && t <= T.scan1 + 0.08) {
+      var ly = PT.y1 - (PT.y1 - PT.y0) * ease((t - T.scan0) / (T.scan1 - T.scan0));
+      scanLine(ly, L.px + L.pw / 2, L.pw * 0.55, 'rgba(190,220,255,');
+    }
+  }
+
+  // ---------- name decode reveal ----------
+  var nameEl = document.getElementById('heroName');
+  var NAME = ['NANDHU S.', 'MAHENDRAN'];
+  function reveal() {
+    revealed = true;
+    hero.classList.remove('intro-on');
+    if (reduce || skipped) { nameEl.innerHTML = 'Nandhu S.<br>Mahendran'; return; }
+    var GL = 'ABCDEFGHJKLMNPRSTUVWXYZ0123456789#/<>', start = performance.now();
+    (function tick() {
+      var e = (performance.now() - start) / 1000, done = true, html = '';
+      NAME.forEach(function (line, li) {
+        for (var c = 0; c < line.length; c++) {
+          var at = (li * 9 + c) * 0.045, ch = line[c];
+          if (ch === ' ') { html += ' '; continue; }
+          if (e < at) { html += '<span class="ch" style="opacity:0">' + ch + '</span>'; done = false; }
+          else if (e < at + 0.2) { html += '<span class="ch" style="opacity:.6">' + GL[(Math.random() * GL.length) | 0] + '</span>'; done = false; }
+          else html += ch;
+        }
+        if (li === 0) html += '<br>';
+      });
+      nameEl.innerHTML = html;
+      if (!done) requestAnimationFrame(tick); else nameEl.innerHTML = 'Nandhu S.<br>Mahendran';
+    })();
+  }
+
+  // ---------- control ----------
+  var imgs = null;
+  function start(fromSkip) {
+    skipped = !!fromSkip; revealed = false;
+    hero.classList.add('intro-on');
+    if (layout) for (var i = 0; PT && i < PT.n; i++) { PT.ox[i] = PT.oy[i] = PT.vx[i] = PT.vy[i] = 0; }
+    t0 = performance.now();
+    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = 'rgb(3,2,5)'; ctx.fillRect(0, 0, cv.width, cv.height);
+    if (!raf && running) raf = requestAnimationFrame(frame);
+  }
+  document.getElementById('skip').addEventListener('click', function () { skipped = true; });
+  document.getElementById('replay').addEventListener('click', function () { start(false); });
+  hero.addEventListener('pointermove', function (e) { var r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+  hero.addEventListener('pointerleave', function () { mouse.x = mouse.y = -9999; });
+  hero.addEventListener('pointerdown', function (e) { var r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; setTimeout(function () { if (e.pointerType !== 'mouse') mouse.x = mouse.y = -9999; }, 450); });
+  var menuBtn = document.getElementById('menuBtn'), navList = document.getElementById('navList');
+  menuBtn.addEventListener('click', function () { var o = navList.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', String(o)); });
+  navList.addEventListener('click', function (e) { if (e.target.closest('a')) { navList.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); } });
+
+  var rt = 0, lastW = 0;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () {
+      var r = hero.getBoundingClientRect();
+      if (!imgs || Math.abs(r.width - lastW) < 2 && Math.abs(r.height - H) < 120) return;   // ignore mobile URL-bar jiggle
+      lastW = r.width; resize(); build(imgs);
+      if (revealed) skipped = true;
+    }, 180);
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { running = false; }
+    else { running = true; lastNow = 0; if (!raf && imgs) raf = requestAnimationFrame(frame); }
+  });
+  window.addEventListener('pageshow', function (e) { if (e.persisted && imgs) { running = true; lastNow = 0; if (!raf) raf = requestAnimationFrame(frame); } });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        running = e.isIntersecting;
+        if (running && !raf && imgs) raf = requestAnimationFrame(frame);
+      });
+    }).observe(hero);
+  }
+
+  Promise.all([loadImg('assets/blunar-white.png'), loadImg('assets/zeshin-white.png'), loadImg('assets/portrait-map.png')]).then(function (a) {
+    imgs = { bl: a[0], ze: a[1], pm: a[2] };
+    resize(); lastW = W; build(imgs);
+    if (reduce) { skipped = true; }
+    start(reduce);
+  }).catch(function () { hero.classList.remove('intro-on'); });
+
+  // ---------- running numbers ----------
+  var nums = document.querySelectorAll('.num[data-to]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var el = e.target, to = +el.getAttribute('data-to'), suf = el.getAttribute('data-suffix') || '', s = performance.now();
+        (function step() {
+          var u = Math.min(1, (performance.now() - s) / 1600), v = Math.round(to * (1 - Math.pow(1 - u, 3)));
+          el.textContent = v + (u >= 1 ? suf : '');
+          if (u < 1) requestAnimationFrame(step);
+        })();
+      });
+    }, { threshold: 0.6 });
+    nums.forEach(function (n) { io.observe(n); });
+  }
+
+  // ---------- copy buttons ----------
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = document.getElementById(b.getAttribute('data-copy')), text = el.textContent.trim();
+      function selectIt() { var r = document.createRange(); r.selectNodeContents(el); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected'; }
+      try { navigator.clipboard.writeText(text).then(function () { b.textContent = 'Copied'; }, selectIt); } catch (e) { selectIt(); }
+      setTimeout(function () { b.textContent = 'Copy'; }, 1800);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
