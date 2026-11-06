@@ -13,13 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050407'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='%23e3c58c' text-anchor='middle'%3ENM%3C/text%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="assets/portrait.jpg">
-<style>
-/* base reset (standalone hosting) */
-:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-body { margin: 0; }
-img { max-width: 100%; }
-[hidden] { display: none !important; }
-</style>
+
 <title>Nandhu S. Mahendran</title>
 <meta name="description" content="Nandhu S. Mahendran — Founder & CEO of Blunar Co, Zeshin, Med Blunar and HodoMate, Ramanathapuram.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -235,8 +229,40 @@ p { margin: 0; }
   .scroll-cue { display: none; }
 }
 
-footer { border-top: 1px solid var(--line); padding-block: 28px 40px; }
-footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font: 400 12px/1.6 var(--mono); color: var(--faint); letter-spacing: .06em; }
+/* ---------- footer ---------- */
+.site-foot { border-top: 1px solid var(--line); background: var(--stage); position: relative; overflow: hidden; }
+.site-foot::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--blue) 45%, var(--mint) 70%, var(--coral) 90%, transparent); opacity: .55; }
+.foot-top { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)) minmax(0, 1.35fr); gap: clamp(28px, 4vw, 48px); padding-block: clamp(56px, 8vw, 88px) 40px; }
+.foot-brand { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.foot-name { font: 700 22px/1.1 var(--display); letter-spacing: .14em; text-transform: uppercase; margin: 0; }
+.foot-role { font: 500 11.5px/1.7 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.foot-role b { font-weight: 500; }
+.foot-brand p.foot-about { color: var(--muted); font-size: 15px; max-width: 38ch; }
+.foot-social { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.foot-social a { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: 10px 13px; }
+.foot-social a:hover { border-color: rgba(232,237,241,.45); }
+.foot-col { min-width: 0; }
+.foot-col h3 { font: 500 11px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--faint); margin: 0 0 18px; }
+.foot-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+.foot-col li { font-size: 15px; line-height: 1.35; overflow-wrap: anywhere; }
+.foot-col a { text-decoration: none; color: #c9cfd6; }
+.foot-col a:hover { color: var(--fg); }
+.foot-col .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 9px; vertical-align: middle; position: relative; top: -1px; }
+.foot-col small { display: block; font: 400 11.5px/1.5 var(--mono); color: var(--faint); margin-top: 3px; letter-spacing: .03em; }
+.foot-contact li { color: #c9cfd6; }
+.foot-bottom { border-top: 1px solid var(--line); padding-block: 22px calc(28px + env(safe-area-inset-bottom, 0px)); display: flex; justify-content: space-between; align-items: center; gap: 14px 24px; flex-wrap: wrap; font: 400 12px/1.6 var(--mono); color: var(--faint); letter-spacing: .05em; }
+.foot-bottom .credits { display: flex; gap: 8px 20px; flex-wrap: wrap; }
+.to-top { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--fg); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; display: inline-flex; gap: 8px; align-items: center; }
+.to-top:hover { border-color: rgba(232,237,241,.45); }
+@media (max-width: 1040px) {
+  .foot-top { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .foot-brand { grid-column: 1 / -1; }
+  .foot-contact { grid-column: 1 / -1; }
+}
+@media (max-width: 620px) {
+  .foot-top { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; }
+  .foot-bottom { flex-direction: column; align-items: flex-start; }
+}
 
 @media (max-width: 960px) {
   .group { grid-template-columns: minmax(0, 1fr); gap: 14px; }
@@ -260,6 +286,13 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   .svc li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .svc li span:last-child { text-align: left; }
 }
+</style>
+<style>
+/* base reset (standalone hosting) */
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
 </style>
 </head>
 <body>
@@ -523,10 +556,71 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   </section>
 </main>
 
-<footer>
+<footer class="site-foot" aria-label="Site footer">
   <div class="wrap">
-    <span>© 2026 Nandhu S. Mahendran</span>
-    <span>Opening sequence drawn live in code from a single photograph</span>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <p class="foot-name">Nandhu S. Mahendran</p>
+        <p class="foot-role">Founder &amp; CEO · <b style="color:var(--gold)">Blunar Co</b> · <b style="color:var(--blue)">Zeshin</b> · <b style="color:var(--mint)">Med Blunar</b> · <b style="color:var(--coral)">HodoMate</b></p>
+        <p class="foot-about">Building software, medtech and travel technology from Ramanathapuram, Tamil Nadu, with a digital marketing studio for businesses across the state.</p>
+        <div class="foot-social">
+          <a href="https://instagram.com/nandhu_s.m" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="https://github.com/msnandhu" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://blunar.co.in" target="_blank" rel="noopener">blunar.co.in ↗</a>
+        </div>
+      </div>
+
+      <nav class="foot-col" aria-label="Companies">
+        <h3>Companies</h3>
+        <ul>
+          <li><span class="dot" style="background:var(--gold)"></span><a href="https://blunar.co.in" target="_blank" rel="noopener">Blunar Co</a><small>Parent company</small></li>
+          <li><span class="dot" style="background:var(--blue)"></span><a href="https://zeshin.in" target="_blank" rel="noopener">Zeshin</a><small>Software &amp; AI</small></li>
+          <li><span class="dot" style="background:var(--mint)"></span><a href="#companies">Med Blunar</a><small>Medtech</small></li>
+          <li><span class="dot" style="background:var(--coral)"></span><a href="#companies">HodoMate</a><small>Tourismtech</small></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="Products">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="https://schoolknot.zeshin.in" target="_blank" rel="noopener">SchoolKnot ↗</a></li>
+          <li><a href="https://ucmas-seven.vercel.app" target="_blank" rel="noopener">Abacus Centre Manager ↗</a></li>
+          <li><a href="#work">FOSIC</a></li>
+          <li><a href="#work">ViMatt</a></li>
+          <li><a href="#work">SpineEase Vest</a></li>
+          <li><a href="https://voltrasaec.online" target="_blank" rel="noopener">VOLTRA 26 ↗</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="Explore">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#companies">Companies</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#studio">Studio</a></li>
+          <li><a href="#recognition">Recognition</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col foot-contact">
+        <h3>Contact</h3>
+        <ul>
+          <li>blunar.company@gmail.com<small>Blunar Co</small></li>
+          <li>zeshin.company@gmail.com<small>Zeshin</small></li>
+          <li>No. 30, Mariyamman Kovil Street,<br>Ramanathapuram – 623501<small>Tamil Nadu, India</small></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div class="credits">
+        <span>© 2026 Nandhu S. Mahendran. All rights reserved.</span>
+        <span>Ramanathapuram · Tamil Nadu · India</span>
+      </div>
+      <a class="to-top" href="#top">Back to top ↑</a>
+    </div>
   </div>
 </footer>
 
