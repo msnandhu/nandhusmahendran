@@ -1,0 +1,35 @@
+# Nandhu S. Mahendran
+
+> Nandhu S. Mahendran is an Indian entrepreneur from Ramanathapuram, Tamil Nadu. He is the Founder & CEO of four companies: Blunar Co (parent company), Zeshin (software & AI), Med Blunar (medtech) and HodoMate (tourismtech). He is also an Electronics and Communication Engineering (ECE) student at Syed Ammal Engineering College, Ramanathapuram.
+
+Official website: https://nandhusmahendran.zeshin.in/
+Also known as: Nandhu, Nandhu S M, Nandhu Mahendran
+
+## Companies
+- Blunar Co (https://blunar.co.in): parent company. A technology startup building software, apps, AI tools, digital devices and environmental-impact technology, with a digital marketing studio for businesses across Tamil Nadu. Role: Founder & CEO.
+- Zeshin (https://zeshin.in): a Blunar Co company. Software and AI: SaaS products, custom business software, business websites and AI automation. Tagline: "Beyond the build". Role: Founder & CEO.
+- Med Blunar: medtech startup building medical devices and health technology. Role: Founder & CEO.
+- HodoMate: tourismtech startup building technology for travellers and tourism businesses. Role: Founder & CEO.
+
+## Products and builds
+- FOSIC (Zeshin): campus canteen food ordering; pilot live at one college.
+- SchoolKnot (Zeshin, https://schoolknot.zeshin.in): Tamil-first parent–teacher app with voice notes.
+- Abacus Centre Manager (Zeshin, https://ucmas-seven.vercel.app): management system for abacus training centres.
+- ViMatt (Med Blunar): first Med Blunar product; prototype completed, in development.
+- SpineEase Vest (Med Blunar): therapeutic haptic vest prototype with eight motors along the spine (ESP32-S3).
+- HealthCom: connected healthcare platform (in development).
+- VOLTRA 26 website (https://voltrasaec.online): national-level technical symposium of the ECE & BME departments, Syed Ammal Engineering College; Nandhu was an Executive Member.
+
+## Track record
+- Built web products and software for 15+ companies.
+- Ran digital marketing for 20+ businesses (Tamil / Tanglish content, Meta ads, WhatsApp funnels, local SEO).
+- Competed in technical events at 30+ colleges across Tamil Nadu and won 40+ events.
+- 1st Place, Dakshaa national-level techno-cultural fest.
+- 4th Prize and Investment Cohort selection, Dindigul Science & Technology Fest (Kaar Tech and Startup TN).
+- Presented at MSME Idea Hackathon 2026 (filtration round, Solamalai Foundation for Startup Incubation).
+
+## Contact
+- Blunar Co: blunar.company@gmail.com
+- Zeshin: zeshin.company@gmail.com
+- Instagram: https://www.instagram.com/nandhu_s.m/
+- Office: No. 30, Mariyamman Kovil Street, Ramanathapuram – 623501, Tamil Nadu, India
