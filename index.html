@@ -631,7 +631,7 @@ img { max-width: 100%; }
   var gcv = document.getElementById('glow'), gctx = gcv.getContext('2d');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var W = 0, H = 0, DPR = 1, layout = null;
-  var BL = null, ZE = null, PT = null, DUST = null, RK = null;
+  var BL = null, ZE = null, MB = null, HM = null, PT = null, DUST = null, RK = null;
   var t0 = 0, raf = 0, running = true, skipped = false, revealed = false;
   var mouse = { x: -9999, y: -9999 };
   var COARSE = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
@@ -639,8 +639,9 @@ img { max-width: 100%; }
   var DPR_CAP = IOS ? 2 : 2, lastNow = 0, slowFrames = 0, sampled = 0, degraded = false;
 
   // timeline (seconds)
-  var T = { hit: 0.9, bStart: 1.0, sheen: 2.75, glitch0: 3.15, bx: 3.5, zs0: 3.95, zs1: 4.95, imp: 5.35, boom: 5.62,
-            p0: 5.66, scan0: 6.35, scan1: 8.6, impact: 8.72, end: 9.1 };
+  var T = { hit: 0.9, bStart: 1.0, sheen: 2.75, glitch0: 3.15, bx: 3.5, zs0: 3.95, zs1: 4.95, zout: 5.3,
+            m0: 5.45, mout: 6.95, h0: 6.95, imp: 8.45, boom: 8.72,
+            p0: 8.76, scan0: 9.45, scan1: 11.7, impact: 11.82, end: 12.2 };
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
   function clamp(x, a, b) { return x < a ? a : x > b ? b : x; }
@@ -748,6 +749,29 @@ img { max-width: 100%; }
       ZE.hit[i] = T.zs0 + (T.zs1 - T.zs0) * invSmooth((ZE.ty[i] - ZE.y0) / (ZE.y1 - ZE.y0));
       ZE.sv[i * 2] = rnd(-260, 260); ZE.sv[i * 2 + 1] = rnd(-260, 60);
     }
+    // Med Blunar (heartbeat sweep)
+    var m = sampleLogo(imgs.mb, Math.min(W * 0.5, 380), H * 0.34, small ? 4.2 : 4.8);
+    n = m.pts.length / 2;
+    MB = { n: n, tx: new Float32Array(n), ty: new Float32Array(n), at: new Float32Array(n), w: m.w };
+    for (i = 0; i < n; i++) {
+      MB.tx[i] = L.lx + m.pts[i * 2]; MB.ty[i] = L.ly + m.pts[i * 2 + 1];
+      MB.at[i] = T.m0 + 0.75 * ((MB.tx[i]) / W) + rnd(0, 0.06);
+    }
+    // HodoMate (leaves rising on the wind)
+    var hm = sampleLogo(imgs.hm, Math.min(W * 0.82, 560), H * 0.3, small ? 3.6 : 4.2);
+    n = hm.pts.length / 2;
+    HM = { n: n, tx: new Float32Array(n), ty: new Float32Array(n), st: new Float32Array(n), arr: new Float32Array(n),
+           sx: new Float32Array(n), sy: new Float32Array(n), ph: new Float32Array(n), amp: new Float32Array(n), c: new Uint8Array(n) };
+    for (i = 0; i < n; i++) {
+      HM.tx[i] = L.lx + hm.pts[i * 2]; HM.ty[i] = L.ly + hm.pts[i * 2 + 1];
+      var fx = hm.pts[i * 2] / hm.w + 0.5, fy = hm.pts[i * 2 + 1] / hm.h + 0.5;
+      HM.arr[i] = T.h0 + 0.3 + (1 - fy) * 0.2 + rnd(0, 0.3);
+      HM.st[i] = Math.max(T.h0, HM.arr[i] - rnd(0.55, 0.85));
+      HM.sx[i] = HM.tx[i] + rnd(-W * 0.25, W * 0.25); HM.sy[i] = H + rnd(20, 420);
+      HM.ph[i] = rnd(0, 6.283); HM.amp[i] = rnd(20, 70);
+      // "Hodo" + mountain green, "Mate" yellow, leaf (far right, upper) green
+      HM.c[i] = (fx > 0.47 && !(fx > 0.86 && fy < 0.62)) && fy > 0.33 ? 1 : 0;
+    }
     // Portrait
     var p = samplePortrait(imgs.pm, L, small ? 7000 : 11000);
     n = p.length / 4;
@@ -804,7 +828,7 @@ img { max-width: 100%; }
     var L = layout, i;
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     // trails while things are moving fast, crisp otherwise
-    var streaky = (t > T.bStart && t < T.sheen) || (t > T.bx && t < T.bx + 1.1) || (t > T.p0 + 0.45 && t < T.scan1 + 0.1);
+    var streaky = (t > T.bStart && t < T.sheen) || (t > T.bx && t < T.bx + 1.1) || (t > T.h0 && t < T.h0 + 0.75) || (t > T.p0 + 0.45 && t < T.scan1 + 0.1);
     ctx.globalCompositeOperation = 'source-over';
     ctx.fillStyle = streaky ? 'rgba(3,2,5,0.28)' : 'rgb(3,2,5)';
     ctx.fillRect(0, 0, W, H);
@@ -837,7 +861,11 @@ img { max-width: 100%; }
     // Blunar from gold sparks
     if (t >= T.bStart && t < T.bx + 1.4) drawBlunar(t);
     // Zeshin hologram scan
-    if (t >= T.zs0 - 0.1 && t < T.boom) drawZeshin(t);
+    if (t >= T.zs0 - 0.1 && t < T.zout + 0.4) drawZeshin(t);
+    // Med Blunar heartbeat
+    if (t >= T.m0 - 0.05 && t < T.mout + 0.4) drawMed(t);
+    // HodoMate rising leaves
+    if (t >= T.h0 && t < T.boom) drawHodo(t);
     // boom + shockwave
     var fb = flash(t, T.boom, 0.12, 1);
     if (fb > 0.01) { radial(L.lx, L.ly, Math.min(W, H) * 0.45, 'rgba(235,240,250,', fb * 0.55); }
@@ -897,14 +925,14 @@ img { max-width: 100%; }
 
   function drawZeshin(t) {
     var L = layout, i;
-    var k = t >= T.imp ? ein((t - T.imp) / (T.boom - T.imp), 3) : 0;
+    var k = t >= T.zout ? ease((t - T.zout) / 0.38) : 0;
     var flick = 0.85 + 0.15 * Math.sin(t * 37) * Math.sin(t * 13);
     ctx.fillStyle = '#9cc5ff';
     for (i = 0; i < ZE.n; i++) {
       if (t < ZE.hit[i]) continue;
-      var x = ZE.tx[i] + (L.lx - ZE.tx[i]) * k, y = ZE.ty[i] + (L.ly - ZE.ty[i]) * k;
-      if (((y | 0) % 3) === 0) continue;   // hologram scan lines
-      var a = (1 + 2 * Math.exp(-(t - ZE.hit[i]) * 9)) * flick * (1 + 2 * k);
+      var x = ZE.tx[i] + ZE.sv[i * 2] * 0.25 * k, y = ZE.ty[i] - (60 + (i % 7) * 12) * k * k;
+      if (((ZE.ty[i] | 0) % 3) === 0) continue;   // hologram scan lines
+      var a = (1 + 2 * Math.exp(-(t - ZE.hit[i]) * 9)) * flick * (1 - k);
       ctx.globalAlpha = Math.min(1, a); ctx.fillRect(x - 1.5, y - 1.5, 3, 3);
       var age = t - ZE.hit[i];
       if (age < 0.5 && (i % 3) === 0) { // falling sparks off the laser
@@ -915,6 +943,55 @@ img { max-width: 100%; }
     if (t >= T.zs0 - 0.05 && t <= T.zs1 + 0.05) {
       var ly = ZE.y0 + (ZE.y1 - ZE.y0) * ease((t - T.zs0) / (T.zs1 - T.zs0));
       scanLine(ly, L.lx, Math.min(W * 0.45, 360), 'rgba(170,210,255,');
+    }
+  }
+
+  function ecgY(x, cx, amp) { // P wave, QRS spike, T wave around cx
+    var d = (x - cx) / amp;
+    return -0.12 * Math.exp(-Math.pow((d + 1.6) / 0.25, 2)) + 0.18 * Math.exp(-Math.pow((d + 0.28) / 0.07, 2))
+           - 1.0 * Math.exp(-Math.pow(d / 0.08, 2)) + 0.35 * Math.exp(-Math.pow((d - 0.22) / 0.07, 2))
+           - 0.22 * Math.exp(-Math.pow((d - 1.3) / 0.3, 2));
+  }
+  function drawMed(t) {
+    var L = layout, i;
+    var amp = Math.min(W * 0.16, 130), sweep = W * 1.15 * ease((t - T.m0) / 0.85) - W * 0.05;
+    var lineA = t < T.m0 + 0.95 ? 1 : Math.max(0, 1 - (t - T.m0 - 0.95) / 0.5);
+    // heartbeat line
+    if (lineA > 0.01) {
+      ctx.globalAlpha = lineA; ctx.strokeStyle = 'rgba(140,240,210,0.95)'; ctx.lineWidth = 2; ctx.beginPath();
+      var ly = L.ly + 10;
+      for (var x = 0; x <= Math.min(sweep, W); x += 3) { var y = ly + ecgY(x, L.lx, amp) * amp * 1.1; if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
+      ctx.stroke();
+      if (sweep > 0 && sweep < W) { var hy = ly + ecgY(sweep, L.lx, amp) * amp * 1.1; radial(sweep, hy, 26, 'rgba(170,255,230,', 0.9); }
+    }
+    // two heartbeats after the logo appears
+    var beat = 1 + 0.06 * Math.exp(-Math.pow((t - (T.m0 + 1.05)) / 0.07, 2)) + 0.045 * Math.exp(-Math.pow((t - (T.m0 + 1.38)) / 0.07, 2));
+    var out = t > T.mout - 0.15 ? ease((t - (T.mout - 0.15)) / 0.45) : 0;
+    ctx.fillStyle = '#8ff0d4';
+    for (i = 0; i < MB.n; i++) {
+      if (t < MB.at[i]) continue;
+      var x = L.lx + (MB.tx[i] - L.lx) * beat, y = L.ly + (MB.ty[i] - L.ly) * beat + out * out * 80 * (1 + (i % 5) * 0.3);
+      var a = (1 + 2.2 * Math.exp(-(t - MB.at[i]) * 8)) * (1 - out) * (0.85 + 0.6 * (beat - 1) * 10);
+      ctx.globalAlpha = Math.min(1, a); ctx.fillRect(x - 1.4, y - 1.4, 2.8, 2.8);
+    }
+  }
+  function drawHodo(t) {
+    var L = layout, i;
+    var k = t >= T.imp ? ein((t - T.imp) / (T.boom - T.imp), 3) : 0;
+    var sheenX = t >= T.imp - 0.55 && t <= T.imp - 0.1 ? (-0.2 + (t - (T.imp - 0.55)) / 0.45 * 1.4) * W : -1e9;
+    for (var pass = 0; pass < 2; pass++) {
+      ctx.fillStyle = pass === 0 ? '#86e08a' : '#ffcc4d';
+      for (i = 0; i < HM.n; i++) {
+        if (HM.c[i] !== pass || t < HM.st[i]) continue;
+        var u = clamp((t - HM.st[i]) / (HM.arr[i] - HM.st[i]), 0, 1);
+        var x = HM.sx[i] + (HM.tx[i] - HM.sx[i]) * eout(u, 2) + Math.sin(u * 7 + HM.ph[i]) * HM.amp[i] * (1 - u);
+        var y = HM.sy[i] + (HM.ty[i] - HM.sy[i]) * eout(u, 3);
+        x += (L.lx - x) * k; y += (L.ly - y) * k;
+        var a = Math.min(1, (t - HM.st[i]) / 0.2) * (t >= HM.arr[i] ? 1 + 1.6 * Math.exp(-(t - HM.arr[i]) * 7) : 0.9) * (1 + 2 * k);
+        if (sheenX > -1e8) { var dd = (x - sheenX) - (y - L.ly) * 0.5; a *= 1 + 1.8 * Math.exp(-(dd * dd) / 6000); }
+        var s = u < 1 ? 2.6 : 2.4;
+        ctx.globalAlpha = Math.min(1, a * 0.85); ctx.fillRect(x - s / 2, y - s / 2, s, s);
+      }
     }
   }
 
@@ -1037,8 +1114,8 @@ img { max-width: 100%; }
     }).observe(hero);
   }
 
-  Promise.all([loadImg('assets/blunar-white.png'), loadImg('assets/zeshin-white.png'), loadImg('assets/portrait-map.png')]).then(function (a) {
-    imgs = { bl: a[0], ze: a[1], pm: a[2] };
+  Promise.all([loadImg('assets/blunar-white.png'), loadImg('assets/zeshin-white.png'), loadImg('assets/portrait-map.png'), loadImg('assets/medblunar-white.png'), loadImg('assets/hodomate-white.png')]).then(function (a) {
+    imgs = { bl: a[0], ze: a[1], pm: a[2], mb: a[3], hm: a[4] };
     resize(); lastW = W; build(imgs);
     if (reduce) { skipped = true; }
     start(reduce);
