@@ -33,6 +33,9 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="alternate" type="text/plain" href="llms.txt" title="LLM-readable profile">
+<link rel="me" href="https://www.instagram.com/nandhu_s.m/">
+<link rel="preload" as="image" href="assets/portrait-map.png" fetchpriority="high">
+<link rel="preload" as="image" href="assets/blunar-white.png">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -53,6 +56,9 @@
     "url": "https://nandhusmahendran.zeshin.in/assets/og-image.jpg",
     "width": 1200,
     "height": 630
+   },
+   "hasPart": {
+    "@id": "https://nandhusmahendran.zeshin.in/#faq"
    }
   },
   {
@@ -190,6 +196,78 @@
     "@id": "https://nandhusmahendran.zeshin.in/#person"
    },
    "description": "Tourismtech startup building technology for travellers and tourism businesses."
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://nandhusmahendran.zeshin.in/#faq",
+   "url": "https://nandhusmahendran.zeshin.in/#faq",
+   "inLanguage": "en-IN",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Who is Nandhu S. Mahendran?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nandhu S. Mahendran is an entrepreneur from Ramanathapuram, Tamil Nadu, India. He is the Founder & CEO of Blunar Co, Zeshin, Med Blunar and HodoMate, and an Electronics and Communication Engineering (ECE) student at Syed Ammal Engineering College."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What companies has Nandhu S. Mahendran founded?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "He founded four companies: Blunar Co, the parent company; Zeshin, a software and AI company; Med Blunar, a medtech startup; and HodoMate, a tourismtech startup. He is Founder & CEO of all four."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is Blunar Co?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Blunar Co is a technology startup based in Ramanathapuram that builds software, apps, AI tools, digital devices and environmental-impact technology. It also runs a digital marketing studio for businesses across Tamil Nadu. Website: blunar.co.in."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does Zeshin build?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Zeshin is a Blunar Co company that builds SaaS products, custom business software, business websites and AI automation. Its products include FOSIC, SchoolKnot and the Abacus Centre Manager. Website: zeshin.in."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is Med Blunar?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Med Blunar is Nandhu S. Mahendran's medtech startup, building medical devices and health technology. Its first product, ViMatt, has a completed prototype and is in development, alongside the SpineEase therapeutic vest."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is HodoMate?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "HodoMate is a tourismtech startup founded by Nandhu S. Mahendran, building technology for travellers and the tourism businesses that host them."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What has Nandhu S. Mahendran achieved?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "He has built web products for 15+ companies, run marketing for 20+ businesses, and competed in technical events at 30+ colleges across Tamil Nadu, winning 40+ events. Highlights include 1st Place at Dakshaa and 4th Prize with an investment cohort spot at the Dindigul Science & Technology Fest."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How can I contact Nandhu S. Mahendran?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Email blunar.company@gmail.com for Blunar Co or zeshin.company@gmail.com for Zeshin, message @nandhu_s.m on Instagram, or visit the office at No. 30, Mariyamman Kovil Street, Ramanathapuram – 623501."
+     }
+    }
+   ]
   }
  ]
 }
@@ -362,6 +440,13 @@ p { margin: 0; }
 .also h3 { font-size: 16px; margin-bottom: 8px; }
 .also p { color: var(--muted); font-size: 15px; }
 
+/* faq */
+.faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(32px, 5vw, 64px); margin-top: 40px; border-top: 1px solid var(--line); }
+.qa { padding-block: 24px; border-bottom: 1px solid var(--line); min-width: 0; }
+.qa h3 { font: 600 18px/1.35 var(--display); margin-bottom: 10px; }
+.qa p { color: var(--muted); font-size: 15.5px; max-width: 60ch; }
+@media (max-width: 760px) { .faq { grid-template-columns: minmax(0, 1fr); } }
+
 /* contact */
 .contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
 .big { font: 700 clamp(36px, 6vw, 76px)/1 var(--display); letter-spacing: .04em; text-transform: uppercase; }
@@ -507,6 +592,7 @@ img { max-width: 100%; }
       <li><a class="l" href="#work">Work</a></li>
       <li><a class="l" href="#studio">Studio</a></li>
       <li><a class="l" href="#recognition">Recognition</a></li>
+      <li><a class="l" href="#faq">FAQ</a></li>
       <li><a class="l" href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -517,10 +603,10 @@ img { max-width: 100%; }
   <section class="block" id="about">
     <div class="wrap about">
       <figure class="portrait">
-        <img src="assets/portrait.jpg" alt="Nandhu S. Mahendran rendered as a silver dot-scan portrait, arms folded, wearing sunglasses" width="810" height="990">
+        <img loading="lazy" decoding="async" src="assets/portrait.jpg" alt="Nandhu S. Mahendran rendered as a silver dot-scan portrait, arms folded, wearing sunglasses" width="810" height="990">
       </figure>
       <div class="about-copy">
-        <p class="eyebrow">About</p>
+        <p class="eyebrow">About Nandhu S. Mahendran</p>
         <h2>I build companies that solve problems close to home.</h2>
         <p class="bio">I'm Nandhu S. Mahendran, Founder &amp; CEO of four companies based in Ramanathapuram. Blunar Co is the parent company. Zeshin builds software and AI products, Med Blunar builds medical technology, and HodoMate builds technology for travel and tourism.</p>
         <p class="bio">Blunar Co also runs a digital marketing studio for businesses across Tamil Nadu. I'm an ECE student at Syed Ammal Engineering College, where much of our team and our first products started.</p>
@@ -542,7 +628,7 @@ img { max-width: 100%; }
       <div class="cos">
         <article class="co blunar">
           <div class="co-head">
-            <img src="assets/blunar-white.png" alt="Blunar Co logo" width="59" height="56">
+            <img loading="lazy" decoding="async" src="assets/blunar-white.png" alt="Blunar Co logo" width="59" height="56">
             <div><h3>Blunar Co</h3><div class="co-role">Founder &amp; CEO · Parent company</div></div>
           </div>
           <p>A technology startup building products across software, apps, AI tools, digital devices and environmental-impact technology, with a digital marketing studio for businesses across Tamil Nadu.</p>
@@ -551,7 +637,7 @@ img { max-width: 100%; }
         </article>
         <article class="co zeshin">
           <div class="co-head">
-            <img src="assets/zeshin-white.png" alt="Zeshin logo" width="56" height="56">
+            <img loading="lazy" decoding="async" src="assets/zeshin-white.png" alt="Zeshin logo" width="56" height="56">
             <div><h3>Zeshin</h3><div class="co-role">Founder &amp; CEO · Software &amp; AI</div></div>
           </div>
           <p>Beyond the build. A software company built by young engineers, making SaaS products, custom business software, business websites and AI automation for businesses and institutions.</p>
@@ -560,7 +646,7 @@ img { max-width: 100%; }
         </article>
         <article class="co med">
           <div class="co-head">
-            <img src="assets/medblunar-white.png" alt="Med Blunar logo" width="78" height="56">
+            <img loading="lazy" decoding="async" src="assets/medblunar-white.png" alt="Med Blunar logo" width="78" height="56">
             <div><h3>Med Blunar</h3><div class="co-role">Founder &amp; CEO · Medtech</div></div>
           </div>
           <p>A medtech startup building medical devices and health technology. Our first product, ViMatt, has a completed prototype and is in development, alongside the SpineEase therapeutic vest.</p>
@@ -569,7 +655,7 @@ img { max-width: 100%; }
         </article>
         <article class="co hodo">
           <div class="co-head">
-            <img src="assets/hodomate-white.png" alt="HodoMate logo" width="140" height="56">
+            <img loading="lazy" decoding="async" src="assets/hodomate-white.png" alt="HodoMate logo" width="140" height="56">
             <div><h3>HodoMate</h3><div class="co-role">Founder &amp; CEO · Tourismtech</div></div>
           </div>
           <p>A tourismtech startup building technology for travellers and the tourism businesses that host them.</p>
@@ -713,6 +799,24 @@ img { max-width: 100%; }
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <p class="eyebrow">FAQ</p>
+      <h2>Questions people ask about Nandhu S. Mahendran.</h2>
+      <div class="faq">
+          <article class="qa"><h3>Who is Nandhu S. Mahendran?</h3><p>Nandhu S. Mahendran is an entrepreneur from Ramanathapuram, Tamil Nadu, India. He is the Founder &amp; CEO of Blunar Co, Zeshin, Med Blunar and HodoMate, and an Electronics and Communication Engineering (ECE) student at Syed Ammal Engineering College.</p></article>
+          <article class="qa"><h3>What companies has Nandhu S. Mahendran founded?</h3><p>He founded four companies: Blunar Co, the parent company; Zeshin, a software and AI company; Med Blunar, a medtech startup; and HodoMate, a tourismtech startup. He is Founder &amp; CEO of all four.</p></article>
+          <article class="qa"><h3>What is Blunar Co?</h3><p>Blunar Co is a technology startup based in Ramanathapuram that builds software, apps, AI tools, digital devices and environmental-impact technology. It also runs a digital marketing studio for businesses across Tamil Nadu. Website: blunar.co.in.</p></article>
+          <article class="qa"><h3>What does Zeshin build?</h3><p>Zeshin is a Blunar Co company that builds SaaS products, custom business software, business websites and AI automation. Its products include FOSIC, SchoolKnot and the Abacus Centre Manager. Website: zeshin.in.</p></article>
+          <article class="qa"><h3>What is Med Blunar?</h3><p>Med Blunar is Nandhu S. Mahendran's medtech startup, building medical devices and health technology. Its first product, ViMatt, has a completed prototype and is in development, alongside the SpineEase therapeutic vest.</p></article>
+          <article class="qa"><h3>What is HodoMate?</h3><p>HodoMate is a tourismtech startup founded by Nandhu S. Mahendran, building technology for travellers and the tourism businesses that host them.</p></article>
+          <article class="qa"><h3>What has Nandhu S. Mahendran achieved?</h3><p>He has built web products for 15+ companies, run marketing for 20+ businesses, and competed in technical events at 30+ colleges across Tamil Nadu, winning 40+ events. Highlights include 1st Place at Dakshaa and 4th Prize with an investment cohort spot at the Dindigul Science &amp; Technology Fest.</p></article>
+          <article class="qa"><h3>How can I contact Nandhu S. Mahendran?</h3><p>Email blunar.company@gmail.com for Blunar Co or zeshin.company@gmail.com for Zeshin, message @nandhu_s.m on Instagram, or visit the office at No. 30, Mariyamman Kovil Street, Ramanathapuram – 623501.</p></article>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="block" id="contact">
     <div class="wrap contact">
@@ -726,7 +830,7 @@ img { max-width: 100%; }
           <div class="line-row"><dt>Blunar Co</dt><dd id="e1">blunar.company@gmail.com</dd><button class="copy" type="button" data-copy="e1">Copy</button></div>
           <div class="line-row"><dt>Zeshin</dt><dd id="e2">zeshin.company@gmail.com</dd><button class="copy" type="button" data-copy="e2">Copy</button></div>
           <div class="line-row"><dt>Websites</dt><dd><a href="https://blunar.co.in" target="_blank" rel="noopener">blunar.co.in ↗</a> &nbsp; <a href="https://zeshin.in" target="_blank" rel="noopener">zeshin.in ↗</a></dd><span></span></div>
-          <div class="line-row"><dt>Instagram</dt><dd><a href="https://instagram.com/nandhu_s.m" target="_blank" rel="noopener">@nandhu_s.m ↗</a></dd><span></span></div>
+          <div class="line-row"><dt>Instagram</dt><dd><a href="https://www.instagram.com/nandhu_s.m/" target="_blank" rel="me noopener">@nandhu_s.m ↗</a></dd><span></span></div>
           <div class="line-row"><dt>Office</dt><dd id="e3">No. 30, Mariyamman Kovil Street, Ramanathapuram – 623501</dd><button class="copy" type="button" data-copy="e3">Copy</button></div>
         </dl>
       </div>
@@ -742,7 +846,7 @@ img { max-width: 100%; }
         <p class="foot-role">Founder &amp; CEO · <b style="color:var(--gold)">Blunar Co</b> · <b style="color:var(--blue)">Zeshin</b> · <b style="color:var(--mint)">Med Blunar</b> · <b style="color:var(--coral)">HodoMate</b></p>
         <p class="foot-about">Building software, medtech and travel technology from Ramanathapuram, Tamil Nadu, with a digital marketing studio for businesses across the state.</p>
         <div class="foot-social">
-          <a href="https://instagram.com/nandhu_s.m" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="https://www.instagram.com/nandhu_s.m/" target="_blank" rel="me noopener">Instagram ↗</a>
           <a href="https://blunar.co.in" target="_blank" rel="noopener">blunar.co.in ↗</a>
         </div>
       </div>
@@ -777,6 +881,7 @@ img { max-width: 100%; }
           <li><a href="#work">Work</a></li>
           <li><a href="#studio">Studio</a></li>
           <li><a href="#recognition">Recognition</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
